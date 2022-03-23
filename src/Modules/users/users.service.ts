@@ -44,4 +44,8 @@ export class UsersService {
     }
     return result;
   }
+  async createMany(createUserDto: CreateUserDto[]) {
+    const result = await this.userModel.create(createUserDto);
+    return result;
+  }
 }

@@ -39,4 +39,8 @@ export class UsersController {
   remove(@Param('id') id: string) {
     return this.usersService.remove(id);
   }
+  @Post('many')
+  createMany(@Body() createUserDto: CreateUserDto[]) {
+    return this.usersService.createMany(createUserDto);
+  }
 }

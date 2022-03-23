@@ -18,15 +18,15 @@ export class MoveService {
     return `This action returns all move`;
   }
 
-  findOne(id: number) {
+  findOne(id: string) {
     return `This action returns a #${id} move`;
   }
 
-  update(id: number, updateMoveDto: UpdateMoveDto) {
+  update(id: string, updateMoveDto: UpdateMoveDto) {
     return `This action updates a #${id} move`;
   }
 
-  remove(id: number) {
+  remove(id: string) {
     return `This action removes a #${id} move`;
   }
 }
