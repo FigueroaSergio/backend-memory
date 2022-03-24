@@ -11,6 +11,8 @@ import { UsersService } from './users.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 
+import { ArrayValidatorPipe } from '../../array-validator.pipe';
+
 @Controller('users')
 export class UsersController {
   constructor(private readonly usersService: UsersService) {}
@@ -40,7 +42,10 @@ export class UsersController {
     return this.usersService.remove(id);
   }
   @Post('many')
-  createMany(@Body() createUserDto: CreateUserDto[]) {
+  createMany(
+    @Body(new ArrayValidatorPipe(CreateUserDto, 'user'))
+    createUserDto: CreateUserDto[],
+  ) {
     return this.usersService.createMany(createUserDto);
   }
 }

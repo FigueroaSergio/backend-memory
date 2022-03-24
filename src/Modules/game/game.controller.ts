@@ -10,13 +10,17 @@ import {
 import { GameService } from './game.service';
 import { CreateGameDto } from './dto/create-game.dto';
 import { UpdateGameDto } from './dto/update-game.dto';
+import { ArrayValidatorPipe } from '../../array-validator.pipe';
 
 @Controller('game')
 export class GameController {
   constructor(private readonly gameService: GameService) {}
 
   @Post()
-  create(@Body() createGameDto: CreateGameDto) {
+  create(
+    @Body(new ArrayValidatorPipe(CreateGameDto, 'moves', (ele) => ele.moves))
+    createGameDto: CreateGameDto,
+  ) {
     return this.gameService.create(createGameDto);
   }
 

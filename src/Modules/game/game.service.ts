@@ -3,18 +3,19 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { CreateGameDto } from './dto/create-game.dto';
 import { UpdateGameDto } from './dto/update-game.dto';
+import { Validator } from 'class-validator';
 
 import { Game, GameDocument } from './entities/game.schema';
 
 @Injectable()
 export class GameService {
-  constructor(@InjectModel(Game.name) private userModel: Model<GameDocument>) {}
+  constructor(@InjectModel(Game.name) private gameModel: Model<GameDocument>) {}
   create(createGameDto: CreateGameDto) {
-    return 'This action adds a new game';
+    return this.gameModel.find();
   }
 
   findAll() {
-    return `This action returns all game`;
+    return this.gameModel.find();
   }
 
   findOne(id: string) {
@@ -28,5 +29,4 @@ export class GameService {
   remove(id: string) {
     return `This action removes a #${id} game`;
   }
-  
 }

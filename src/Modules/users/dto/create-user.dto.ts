@@ -9,28 +9,37 @@ import {
 export class CreateUserDto {
   @IsString()
   @IsNotEmpty()
-  readonly name: string;
+  name: string;
 
   @IsEmail()
   @IsNotEmpty()
-  readonly email: string;
+  email: string;
 
   @IsInt()
   @IsPositive()
   @IsNotEmpty()
-  readonly age: string;
+  age: string;
 
   @IsString()
   @IsOptional()
-  readonly sport: string;
+  sport: string;
 
   @IsString()
   @IsOptional()
-  readonly work: string;
+  work: string;
 
   @IsString()
   @IsOptional()
-  readonly sex: string;
+  sex: string;
+  constructor() {
+    const b = {
+      name: null,
+      age: null,
+      email: null,
+      sport: null,
+      work: null,
+      sex: null,
+    };
+    Object.assign(this, b);
+  }
 }
-
-export default CreateUserDto;

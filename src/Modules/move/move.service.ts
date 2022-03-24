@@ -29,4 +29,8 @@ export class MoveService {
   remove(id: string) {
     return `This action removes a #${id} move`;
   }
+
+  createMany(moves: CreateMoveDto[]) {
+    return 'prueba create Many';
+  }
 }

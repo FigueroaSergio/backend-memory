@@ -1,8 +1,14 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import {
+  Injectable,
+  NotFoundException,
+  BadRequestException,
+} from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
+import { Validator, validate } from 'class-validator';
 import { Model } from 'mongoose';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
+
 import { User, UserDocument } from './entities/user.schema';
 
 @Injectable()
@@ -45,7 +51,6 @@ export class UsersService {
     return result;
   }
   async createMany(createUserDto: CreateUserDto[]) {
-    const result = await this.userModel.create(createUserDto);
-    return result;
+    return '0';
   }
 }
