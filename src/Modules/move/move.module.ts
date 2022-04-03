@@ -11,5 +11,6 @@ import { Move, MoveSchema } from './entities/move.schema';
   ],
   controllers: [MoveController],
   providers: [MoveService],
+  exports:[MoveService]
 })
 export class MoveModule {}

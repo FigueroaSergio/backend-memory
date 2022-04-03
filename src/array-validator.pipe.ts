@@ -7,20 +7,16 @@ import {
 @Injectable()
 export class ArrayValidatorPipe implements PipeTransform {
   constructor(
-    private objectSchema: any,
     private name: string,
-    private post: Function = (ele) => ele,
+    private post: Function = (ele) => ele,//specify in which part should be the data to validate
   ) {}
   async transform(value: any, { metatype }: ArgumentMetadata) {
     const data = [];
     const validateData = this.post(value);
     let error = false;
     for (const i in validateData) {
-      const type = typeof validateData[i];
-      const types = ['number', 'boolean', 'string'];
-      const includes = types.includes(type);
-      if (Array.isArray(validateData[i]) || includes) {
-        error = true;
+      if (Array.isArray(validateData[i])) {
+        error = true;        
         data.push(`${this.name}.${i}  must be an object`);
       }
     }

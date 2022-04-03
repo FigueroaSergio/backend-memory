@@ -29,7 +29,7 @@ export class UsersController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.usersService.findOne(id);
+    return this.usersService.findById(id);
   }
 
   @Put(':id')
@@ -43,7 +43,7 @@ export class UsersController {
   }
   @Post('many')
   createMany(
-    @Body(new ArrayValidatorPipe(CreateUserDto, 'user'))
+    @Body(new ArrayValidatorPipe('user'))
     createUserDto: CreateUserDto[],
   ) {
     return this.usersService.createMany(createUserDto);

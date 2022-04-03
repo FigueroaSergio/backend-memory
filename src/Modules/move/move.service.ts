@@ -8,14 +8,15 @@ import { Move, MoveDocument } from './entities/move.schema';
 
 @Injectable()
 export class MoveService {
-  constructor(@InjectModel(Move.name) private userModel: Model<MoveDocument>) {}
+  constructor(@InjectModel(Move.name) private moveModel: Model<MoveDocument>) {}
 
   create(createMoveDto: CreateMoveDto) {
     return 'This action adds a new move';
   }
 
-  findAll() {
-    return `This action returns all move`;
+  async findAll(query:Object={}) {
+    
+    return this.moveModel.find(query);
   }
 
   findOne(id: string) {
@@ -31,6 +32,6 @@ export class MoveService {
   }
 
   createMany(moves: CreateMoveDto[]) {
-    return 'prueba create Many';
+    return this.moveModel.create(moves);
   }
 }

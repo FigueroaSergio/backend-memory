@@ -18,7 +18,7 @@ export class GameController {
 
   @Post()
   create(
-    @Body(new ArrayValidatorPipe(CreateGameDto, 'moves', (ele) => ele.moves))
+    @Body(new ArrayValidatorPipe('moves', (ele) => ele.moves))
     createGameDto: CreateGameDto,
   ) {
     return this.gameService.create(createGameDto);

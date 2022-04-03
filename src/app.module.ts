@@ -4,8 +4,8 @@ import { AppService } from './app.service';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
 import { UsersModule } from './Modules/users/users.module';
-import { GameModule } from './modules/game/game.module';
-import { MoveModule } from './modules/move/move.module';
+import { GameModule } from './Modules/game/game.module';
+import { MoveModule } from './Modules/move/move.module';
 
 @Module({
   imports: [

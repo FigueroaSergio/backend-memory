@@ -31,7 +31,13 @@
 ```bash
 $ npm install
 ```
+####create file .env
+```bash
+DB_URI=mongodb://localhost/bmemory
 
+#Optional
+PORT #default 3000
+```
 ## Running the app
 
 ```bash

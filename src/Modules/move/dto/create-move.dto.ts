@@ -6,10 +6,12 @@ import {
   ArrayMinSize,
   ArrayMaxSize,
   IsDateString,
+  IsOptional,
+  IsMongoId
 } from 'class-validator';
 export class CreateMoveDto {
-  @IsString()
-  @IsNotEmpty()
+  @IsMongoId()
+  @IsOptional()
   public game: string;
 
   @IsBoolean()

@@ -11,12 +11,11 @@ import { CreateMoveDto } from '../../move/dto/create-move.dto';
 
 export class CreateGameDto {
   @IsString()
-  @IsMongoId()
   @IsNotEmpty()
   readonly user: string;
 
   @IsArray()
-  @ArrayMinSize(1)
+  @ArrayMinSize(12)
   @Type(() => CreateMoveDto)
   @ValidateNested({ each: true })
   readonly moves: CreateMoveDto[];

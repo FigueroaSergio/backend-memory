@@ -31,15 +31,5 @@ export class CreateUserDto {
   @IsString()
   @IsOptional()
   sex: string;
-  constructor() {
-    const b = {
-      name: null,
-      age: null,
-      email: null,
-      sport: null,
-      work: null,
-      sex: null,
-    };
-    Object.assign(this, b);
-  }
+  
 }
