@@ -16,7 +16,7 @@ export class GameService {
     private readonly movesService: MoveService,
   ) {}
   async create(createGameDto: CreateGameDto) {
-    let user = await this.usersService.findByEmail(createGameDto.user);
+    let user = await this.usersService.findByEmail(createGameDto.email);
     try {
       let game = await this.gameModel.create({ user: user._id });
       let moves = await createGameDto.moves.map(ele=>{return{...ele,"game":game.id}});
@@ -44,7 +44,7 @@ export class GameService {
       }, HttpStatus.NOT_FOUND)
     }
     let moves = await this.movesService.findAll({game:game.id});
-    console.log(moves);
+    //console.log(moves);
     const gameDetails ={game:game, moves:moves};
     return gameDetails;
   }

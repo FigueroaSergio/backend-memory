@@ -7,9 +7,7 @@ import {
   IsOptional,
 } from 'class-validator';
 export class CreateUserDto {
-  @IsString()
-  @IsNotEmpty()
-  name: string;
+ 
 
   @IsEmail()
   @IsNotEmpty()
@@ -18,7 +16,7 @@ export class CreateUserDto {
   @IsInt()
   @IsPositive()
   @IsNotEmpty()
-  age: string;
+  age: number;
 
   @IsString()
   @IsOptional()

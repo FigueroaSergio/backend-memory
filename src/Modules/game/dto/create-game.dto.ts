@@ -12,7 +12,7 @@ import { CreateMoveDto } from '../../move/dto/create-move.dto';
 export class CreateGameDto {
   @IsString()
   @IsNotEmpty()
-  readonly user: string;
+  readonly email: string;
 
   @IsArray()
   @ArrayMinSize(12)
