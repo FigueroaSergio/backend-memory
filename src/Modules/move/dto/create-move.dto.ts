@@ -19,14 +19,14 @@ export class CreateMoveDto {
   public match: boolean;
 
   @IsArray()
-  @ArrayMinSize(2)
-  @ArrayMaxSize(2)
+  @ArrayMinSize(3)
+  @ArrayMaxSize(3)
   @IsNotEmpty()
   public card1: [];
 
   @IsArray()
-  @ArrayMinSize(2)
-  @ArrayMaxSize(2)
+  @ArrayMinSize(3)
+  @ArrayMaxSize(3)
   @IsNotEmpty()
   public card2: [];
 

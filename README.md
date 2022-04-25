@@ -31,7 +31,7 @@
 ```bash
 $ npm install
 ```
-####create file .env
+#### create file .env
 ```bash
 DB_URI=mongodb://localhost/bmemory
 
